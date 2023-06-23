@@ -9,9 +9,9 @@ function Home() {
 
   return (
     <div>
-      <h1>Hello world</h1>
+      <h1>"O sucesso é a soma de pequenos esforços repetidos dia após dia." - Robert Collier</h1>
       <p>Count: {count}</p>
-      <button onClick={handleClick}>Click</button>
+      <button onClick={handleClick}>Like</button>
     </div>
   );
 }
