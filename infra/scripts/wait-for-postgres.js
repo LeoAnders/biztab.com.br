@@ -21,7 +21,7 @@ async function checkPostgres() {
       return;
     }
 
-    spinner.succeed("postgress is ready and accepting connections");
+    spinner.succeed("🚀 postgress is ready and accepting connections");
 
     clearTimeout(timeOut.id);
   }
