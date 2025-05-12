@@ -1,4 +1,5 @@
 import { Client } from "pg";
+import { ServiceError } from "infra/errors.js";
 
 async function query(queryObject) {
   let client;
@@ -7,9 +8,11 @@ async function query(queryObject) {
     const result = await client.query(queryObject);
     return result;
   } catch (error) {
-    console.log("\n Error inside database.js catch!");
-    console.error(error);
-    throw error;
+    const ServiceErrorObject = new ServiceError({
+      message: "Connection to database failed or query failed",
+      cause: error,
+    });
+    throw ServiceErrorObject;
   } finally {
     await client?.end();
   }
