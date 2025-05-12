@@ -1,9 +1,9 @@
 export class InternalServerError extends Error {
   constructor({ cause, statusCode }) {
     super("Unexpected internal error"),
-    {
-      cause,
-    };
+      {
+        cause,
+      };
     this.name = "InternalServerError";
     this.action = "Please, contact the system administrator.";
     this.statusCode = statusCode || 500;
@@ -22,9 +22,9 @@ export class InternalServerError extends Error {
 export class ServiceError extends Error {
   constructor({ cause, message }) {
     super(message || "Service currently unavailable"),
-    {
-      cause,
-    };
+      {
+        cause,
+      };
     this.name = "ServiceError";
     this.action = "Check if the service is up and running";
     this.statusCode = 503;
@@ -44,7 +44,8 @@ export class MethodNotAllowedError extends Error {
   constructor() {
     super("Method not allowed for this endpoint");
     this.name = "MethodNotAllowedError";
-    this.action = "Please check if you are using the correct HTTP method for this endpoint";
+    this.action =
+      "Please check if you are using the correct HTTP method for this endpoint";
     this.statusCode = 405;
   }
 
