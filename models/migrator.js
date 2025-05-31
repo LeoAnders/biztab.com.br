@@ -14,7 +14,7 @@ async function initializeMigrations({ dryRun = true }) {
       dryRun: dryRun,
       dir: resolve("infra", "migrations"),
       direction: "up",
-      log: () => { },
+      log: () => {},
       migrationsTable: "pgmigrations",
     };
 
