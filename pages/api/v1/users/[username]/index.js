@@ -6,10 +6,19 @@ const router = createRouter();
 
 export default router.handler(controller.errorHandlers);
 
-router.get(getUsersHandle);
+router.get(getUserHandler);
+router.patch(patchUserHandler);
 
-async function getUsersHandle(request, response) {
+async function getUserHandler(request, response) {
   const username = request.query.username;
   const userFound = await user.findOneByUsername(username);
   return response.status(200).json(userFound);
+}
+
+async function patchUserHandler(request, response) {
+  const username = request.query.username;
+  const userInputValues = request.body;
+
+  const updatedUser = await user.update(username, userInputValues);
+  return response.status(200).json(updatedUser);
 }
